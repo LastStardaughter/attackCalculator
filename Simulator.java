@@ -80,6 +80,11 @@ public class Simulator{
             System.out.println("Critical hit! " + dmg + " damage!");
             return dmg;
         }
+      //if (roll==20){}
+        if (atkDie.getValue()==1){
+            System.out.println("Critical miss!");
+            return 0;
+        }
         //For descriptive fluff, I've decided to describe a failed result <10 as a "miss" while a failed result >=10 "fails to bypass armor"
         //This way we also get some use out of the armor's name field.
       //if (roll+atkMod < 10 && roll+atkMod < ac){
