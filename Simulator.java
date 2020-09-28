@@ -24,11 +24,23 @@ public class Simulator{
         Creature goblin = new Creature("goblin", 2, 8, 14);
         goblin.equip(new Armor("leather armor", 1));
         goblin.equip(new Weapon("shortsword", "1d6", true));
+        Creature veteran = new Creature("Veteran adventurer", 10, 18, 12);
+        veteran.equip(new Armor("+1 full plate", 8, 0, 1));
+        veteran.equip(new Weapon("+1 greatsword", "2d6", false, 1));
+        Creature dragon = new Creature("Young red dragon", 10, 23, 10);
+        dragon.equip(new Armor("scaly hide", 8));
+        dragon.equip(new Weapon("bite", "2d10", true));
         
         dmg = attack(newbie, goblin, rand);
         //code handling change in HP would go here
 
         dmg = attack(goblin, newbie, rand);
+        //code handling change in HP would go here
+
+        dmg = attack(dragon, veteran, rand);
+        //code handling change in HP would go here
+
+        dmg = attack(veteran, dragon, rand);
         //code handling change in HP would go here
     }
 
@@ -38,7 +50,7 @@ public class Simulator{
         int dice=Integer.parseInt(diceExpr.substring(0, diceExpr.indexOf("d")));        
         int sides=Integer.parseInt(diceExpr.substring(diceExpr.indexOf("d")+1));
         int ac=10 + target.getArmor().getBonus() + Math.min(target.dexMod(), target.getArmor().getMaxDex());
-        int dmgBonus=attacker.getWeapon().getEnhancement() + ( attacker.getWeapon().isFinesse() ? attacker.dexMod() : attacker.strMod() );
+        int dmgBonus=attacker.getWeapon().getEnhancement() + ( attacker.getWeapon().isFinesse() ? Math.max(attacker.dexMod(), attacker.strMod()) : attacker.strMod() );
         int atkMod=attacker.profMod() + dmgBonus;
         int dmg=dmgBonus;
         //We're instantiating this class only to throw it away at the end of the method... passing it from Main() adds nothing though...
