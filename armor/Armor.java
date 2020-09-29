@@ -1,8 +1,8 @@
 package armor;
 
 public class Armor {
-    String name;
-    int armorBonus, maxDex, enhancement;
+    private String name;
+    private int armorBonus, maxDex, enhancement;
 
     public Armor(String name, int armor)
     {

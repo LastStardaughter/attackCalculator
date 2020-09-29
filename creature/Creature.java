@@ -1,12 +1,15 @@
 package creature;
 import weapon.*;
 import armor.*;
+import simulator.*;
+import combatant.*;
+import java.util.Random;
 
-public class Creature {
-    String name;
-    int str, dex, lvl;
-    Weapon weapon;
-    Armor armor;
+public class Creature implements Combatant{
+    private String name;
+    private int str, dex, lvl;
+    private Weapon weapon;
+    private Armor armor;
 
     public Creature(String name, int lvl, int str, int dex){
         this.name=name;
@@ -44,6 +47,14 @@ public class Creature {
         return 2+(lvl-1)/4;
     }
 
+    public int getAC(){        
+        return BASE_ARMOR_CLASS + armor.getBonus() + Math.min(dexMod(), armor.getMaxDex());
+    }
+
+    public int getTouchAC(){
+        return BASE_ARMOR_CLASS + Math.min(dexMod(), armor.getMaxDex());
+    }
+
     public String getName(){
         return name;
     }
@@ -56,4 +67,10 @@ public class Creature {
         return armor;
     }
     
+    public void attack(Creature target, Random rand){
+        int dmg = Simulator.attack(this, target, rand);
+        //would probably need refactoring to apply damage but that's not part of this demonstration.
+        //target.takeDmg(dmg);
+    }
+
 }

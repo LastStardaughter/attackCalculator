@@ -1,9 +1,9 @@
 package weapon;
 
 public class Weapon {
-    String name, dice;
-    boolean finesse=false;
-    int enhancement;
+    private String name, dice;
+    private boolean finesse=false;
+    private int enhancement;
 
     public Weapon(String name, String dice){
         this.name=name;
