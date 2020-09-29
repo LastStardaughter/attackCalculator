@@ -22,8 +22,6 @@ public class Simulator{
         //If this were a real game, I think treating dice as objects would be a bad idea, Tabletop Simulator aside.
         Die atkDie=new Die(COMBAT_RESOLUTION_DIE_SIZE), dmgDie=new Die(sides);        
 
-        System.out.println(attacker.getName() + " attacks " + target.getName() + " with its " + attacker.getWeapon().getName() + "!");
-
         atkDie.roll(rand);
 
         if(debug){

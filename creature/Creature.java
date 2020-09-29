@@ -67,10 +67,19 @@ public class Creature implements Combatant{
         return armor;
     }
     
-    public void attack(Creature target, Random rand){
-        int dmg = Simulator.attack(this, target, rand);
-        //would probably need refactoring to apply damage but that's not part of this demonstration.
-        //target.takeDmg(dmg);
+    public void attack(Combatant target, Random rand){
+        System.out.println(name + " attacks " + target.getName() + " with its " + weapon.getName() + "!");
+        
+        if (target instanceof Creature){
+            int dmg = Simulator.attack(this, (Creature) target, rand);
+            //would probably need refactoring to apply damage but that's not part of this demonstration.
+            //target.takeDmg(dmg);
+        } else {
+            target.respond(this);
+        }
     }
 
+    public void respond(Combatant attacker){
+        System.out.println("ERROR: Unhandled combat: " + attacker.getClass().toString() + " vs Creature.");
+    }
 }

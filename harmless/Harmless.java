@@ -1,6 +1,5 @@
 package harmless;
 import combatant.*;
-import creature.*;
 import java.util.Random;
 
 public class Harmless implements Combatant {
@@ -15,8 +14,12 @@ public class Harmless implements Combatant {
         return name;
     }
 
-    public void attack(Creature target, Random rand){
+    public void attack(Combatant target, Random rand){
         System.out.println("The " + name + " " + verb + " at " + target.getName() + " menacingly but harmlessly!");
         return;
+    }
+
+    public void respond(Combatant attacker){
+        System.out.println("The " + name + " dies!");
     }
 }

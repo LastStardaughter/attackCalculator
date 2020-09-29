@@ -1,10 +1,11 @@
 package combatant;
-import creature.*;
 import java.util.Random;
 
 public interface Combatant {
     public static final int BASE_ARMOR_CLASS = 10; //Not sure which access modifier is appropriate for this situation
-    public void attack(Creature target, Random rand);
+    public String getName();
+    public void attack(Combatant target, Random rand);
+    public void respond(Combatant attacker);
     //public void takeDmg(int dmg);
     //Example of another method that would be appropriate for the interface
     //Creatures could have hit points and actually track damage, Harmless might be instantly slain instead.

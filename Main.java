@@ -29,11 +29,12 @@ public class Main {
         Creature dragon = new Creature("Young red dragon", 10, 23, 10);
         dragon.equip(new Armor("scaly hide", 8));
         dragon.equip(new Weapon("bite", "2d10", true));
-        Harmless slime = new Harmless("ghost slime", "jiggles");
+        Harmless slime = new Harmless("harmless slime", "jiggles");
         
         newbie.attack(goblin, rand);
         goblin.attack(newbie, rand);
         slime.attack(newbie, rand);
+        newbie.attack(slime, rand);
         dragon.attack(veteran, rand);
         veteran.attack(dragon, rand);
     }
