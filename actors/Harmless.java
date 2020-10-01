@@ -1,6 +1,4 @@
-package harmless;
-import combatant.*;
-import java.util.Random;
+package actors;
 
 public class Harmless implements Combatant {
     private String name, verb;
@@ -14,7 +12,7 @@ public class Harmless implements Combatant {
         return name;
     }
 
-    public void attack(Combatant target, Random rand){
+    public void attack(Combatant target){
         System.out.println("The " + name + " " + verb + " at " + target.getName() + " menacingly but harmlessly!");
         return;
     }

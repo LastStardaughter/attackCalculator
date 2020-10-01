@@ -1,5 +1,4 @@
-package die;
-import java.util.Random;
+package util;
 
 public class Die{
     private short sides;
@@ -16,8 +15,8 @@ public class Die{
         this.sides=(short) sides;
     }
 
-    public void roll(Random rand){
-        value = rand.nextInt(sides)+1;
+    public void roll(){
+        value = Rand.nextInt(sides)+1;
     }
 
     public int getValue(){

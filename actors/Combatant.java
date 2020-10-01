@@ -1,10 +1,9 @@
-package combatant;
-import java.util.Random;
+package actors;
 
 public interface Combatant {
-    public static final int BASE_ARMOR_CLASS = 10; //Not sure which access modifier is appropriate for this situation
+    static final int BASE_ARMOR_CLASS = 10;
     public String getName();
-    public void attack(Combatant target, Random rand);
+    public void attack(Combatant target);
     public void respond(Combatant attacker);
     //public void takeDmg(int dmg);
     //Example of another method that would be appropriate for the interface

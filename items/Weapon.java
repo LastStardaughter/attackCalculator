@@ -1,4 +1,4 @@
-package weapon;
+package items;
 
 public class Weapon {
     private String name, dice;

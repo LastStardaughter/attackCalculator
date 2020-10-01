@@ -1,9 +1,6 @@
-package creature;
-import weapon.*;
-import armor.*;
+package actors;
+import items.*;
 import simulator.*;
-import combatant.*;
-import java.util.Random;
 
 public class Creature implements Combatant{
     private String name;
@@ -67,11 +64,11 @@ public class Creature implements Combatant{
         return armor;
     }
     
-    public void attack(Combatant target, Random rand){
+    public void attack(Combatant target){
         System.out.println(name + " attacks " + target.getName() + " with its " + weapon.getName() + "!");
-        
+
         if (target instanceof Creature){
-            int dmg = Simulator.attack(this, (Creature) target, rand);
+            int dmg = Simulator.attack(this, (Creature) target);
             //would probably need refactoring to apply damage but that's not part of this demonstration.
             //target.takeDmg(dmg);
         } else {

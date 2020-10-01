@@ -1,4 +1,4 @@
-package armor;
+package items;
 
 public class Armor {
     private String name;
